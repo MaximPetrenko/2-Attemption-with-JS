@@ -1,0 +1,221 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap')
+
+* {
+    box-sizing: border-box;
+}
+
+:root {
+    /* Colors */
+    --blue-100: hsl(195, 74%, 62%);
+    --blue-200: hsl(236, 100%, 87%);
+    --blue-300: hsl(235, 45%, 61%);
+    --blue-500: hsl(246, 80%, 60%);
+    --blue-700: hsl(235, 46%, 20%);
+    --blue-900: hsl(226, 43%, 10%);
+    --red-100: hsl(15, 100%, 70%);
+    --red-200: hsl(348, 100%, 68%);
+    --green-100: hsl(145, 58%, 55%);
+    --violet-100: hsl(264, 64%, 52%);
+    --orange-100: hsl(43, 84%, 65%);
+    /* Fonts */
+    --fonts: 'Rubik', sans-serif;
+    --fs: 18px;
+    --weight-light: 300;
+    --weight-normal: 400;
+    --weight-bold: 500;
+
+    --radius: 0.75rem;
+}
+
+body {
+    margin: 0;
+    background-color: var(--blue-900);
+    font-size: var(--fs);
+    color: white;
+}
+
+.dashboard {
+    min-height: 100vh;
+    padding: 4rem 0.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.dashboard__content {
+    width: 100%;
+    max-width: 900px;
+    margin: 0 auto;
+    display: grid;
+    gap: 1.5rem;
+    justify-content: center;
+    grid-template-columns: repeat(1, minmax(300px, 330px));
+}
+
+.dashboard__person {
+    background-color: var(--blue-700);
+    border-radius: var(--radius);
+}
+
+.info-card {
+    background-color: var(--blue-500);
+    border-radius: var(--radius);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+    gap: 1rem;
+}
+
+.info-card__photo {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: 3px solid white;
+}
+
+.info-card__subtitle {
+    font-size: 12px;
+    font-weight: var(--weight-light);
+    margin: 0;
+}
+
+.info-card__title {
+    font-weight: var(--weight-light);
+    margin: 0.5rem 0 0;
+}
+
+.view-selector {
+    display: flex;
+    justify-content: space-around;
+    padding: 1rem;
+    font-weight: var(--weight-light);
+}
+
+.view-selector__item {
+    font-size: 12px;
+    color: var(--blue-200);
+    cursor: pointer;
+}
+
+.view-selector__item:hover, .view-selector__item--active {
+    color: white;
+}
+
+.dashboard__item {
+    width: 100%;
+    padding-top: 2.15rem;
+    border-radius: var(--radius);
+    background-repeat: no-repeat;
+    background-position: 90% -15%;
+}
+
+/* Main cards  */
+
+.dashboard__item--work {
+    background-color: var(--red-100);
+    background-image: url(../images/icon-work.svg);
+}
+.dashboard__item--play {
+    background-color: var(--blue-100);
+    background-image: url(../images/icon-play.svg);
+}
+.dashboard__item--study {
+    background-color: var(--red-200);
+    background-image: url(../images/icon-study.svg);
+}
+.dashboard__item--exercise {
+    background-color: var(--green-100);
+    background-image: url(../images/icon-exercise.svg);
+}
+.dashboard__item--social {
+    background-color: var(--violet-100);
+    background-image: url(../images/icon-social.svg);
+}
+.dashboard__item--self-care {
+    background-color: var(--orange-100);
+    background-image: url(../images/icon-self-care.svg);
+}
+
+/* End of main cards */
+
+.tracking__card {
+    background-color: var(--blue-700);
+    border-radius: var(--radius);
+    padding: 1.25rem;
+    position: relative;
+    bottom: -2px;
+}
+
+.tracking__card__header, .tracking__card__body {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-weight: var(--weight-light);
+}
+
+.tracking__card__menu {
+    cursor: pointer;
+}
+
+.dashboard__item:hover .tracking__card {
+    background-color: var(--blue-300);
+}
+
+.tracking__card__body {
+    margin-top: 1rem;
+}
+
+.tracking__card__title {
+    font-size: var(--fs);
+    font-weight: var(--weight-light);
+}
+
+.tracking__card__time {
+    font-size: 32px;
+    font-weight: var(--weight-light);
+}
+
+.tracking__card__previous {
+    font-weight: var(--weight-light);
+    font-size: 12px;
+}
+
+@media (min-width: 1024px) {
+    .dashboard__content {
+        grid-template-columns: repeat(4, 1fr);
+    }
+    .dashboard__person {
+        grid-row-start: 1;
+        grid-row-end: 3;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+    }
+    .info-card {
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: flex-start;
+        flex-grow: 1;
+    }
+    .info-card__text{
+        gap: 15px;
+    }
+    .info-card__title {
+        font-size: 30px;
+    }
+    .view-selector {
+        flex-direction: column;
+        font-size: 12px;
+        gap: 10px;
+    }
+    .tracking__card__title, .tracking__card__previous {
+        font-size: 12px;
+        font-weight: var(--weight-light);
+        margin-top: 5px;
+    }
+    .tracking__card__body {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}
